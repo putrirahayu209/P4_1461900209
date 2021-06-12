@@ -43,7 +43,7 @@
             <td>{{$buku->id}}</td>
             <td>{{$buku->judul}}</td>
             <td>{{$buku->tahun_terbit}}</td>
-            <td>Jenis</td>
+            <td>{{$buku-> jenis}}</td>
             <td>
               <a href="{{ url('buku0209/' .$buku->id. "/edit") }}">Edit</a>
               |
