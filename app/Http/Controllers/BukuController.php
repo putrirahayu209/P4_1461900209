@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buku;
+use App\Exports\BukuExport;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controllers;
 
 class BukuController extends Controller
 {
@@ -14,8 +18,8 @@ class BukuController extends Controller
      */
     public function index()
     {
-        $buku = Buku::all();
-        return view('buku0209', ['Buku'=> $buku]);
+        $buku = buku::Join('Jenis_Buku','buku.id','=','Jenis_Buku.id')->get();
+        return view('buku0209', ['buku'=> $buku]);
     }
 
     /**
@@ -27,6 +31,12 @@ class BukuController extends Controller
     {
         return view("tambah_data0209");
     }
+
+    public function export_excel()
+    {
+        return Excel::download(new BukuExport, 'buku.xlsx');
+    }
+
 
     /**
      * Store a newly created resource in storage.

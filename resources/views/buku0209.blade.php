@@ -32,16 +32,18 @@
               <th>Id</th>
               <th>Judul</th>
               <th>Tahun Terbit</th>
+              <th>Jenis</th>
               <th>Aksi</th>
           </tr>
       </thead>
       <tbody>
         <?php $no = 1; ?>
-        @foreach($Buku as $buku)
+        @foreach($buku as $buku)
         <tr>
             <td>{{$buku->id}}</td>
             <td>{{$buku->judul}}</td>
             <td>{{$buku->tahun_terbit}}</td>
+            <th>Jenis</th>
             <td>
               <a href="{{ url('buku0209/' .$buku->id. "/edit") }}">Edit</a>
               |
@@ -55,4 +57,5 @@
         @endforeach
       </tbody>
   </table>
+  <a href="/BukuController/export_excel" class="btn btn-success my-3" target="_blank"> EXPORT EXCEL</a>
   </div>

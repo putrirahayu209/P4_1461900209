@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Route;
+use App\Exports\BukuExport;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/BukuController/export_excel', 'App\Http\Controllers\BukuController@export_excel');
 Route::get('/buku0209','App\Http\Controllers\BukuController@create');
 Route::resource('buku0209',BukuController::class);
